@@ -1,0 +1,7 @@
+{
+  "task": "Create a REST API endpoint to get user information",
+  "solution": "from flask import Flask, jsonify, request\nfrom typing import Dict, Any\n\napp = Flask(__name__)\n\n@app.route('/api/users/<int:user_id>', methods=['GET'])\ndef get_user_endpoint(user_id: int) -> Dict[str, Any]:\n    \"\"\"\n    Get user information by ID.\n    \n    Args:\n        user_id: User identifier from URL path\n    \n    Returns:\n        JSON response with user data or error message\n    \"\"\"\n    try:\n        if user_id <= 0:\n            return jsonify({\n                'error': 'Invalid user ID',\n                'message': 'User ID must be positive'\n            }), 400\n        \n        # Get user from database\n        user = get_user(user_id)\n        \n        if not user:\n            return jsonify({\n                'error': 'User not found',\n                'message': f'No user found with ID {user_id}'\n            }), 404\n        \n        return jsonify({\n            'success': True,\n            'data': user\n        }), 200\n        \n    except ValueError as e:\n        return jsonify({\n            'error': 'Validation error',\n            'message': str(e)\n        }), 400\n    except Exception as e:\n        return jsonify({\n            'error': 'Internal server error',\n            'message': 'An unexpected error occurred'\n        }), 500",
+  "description": "REST API endpoint with proper error handling and status codes",
+  "tags": ["api", "rest", "flask", "error-handling", "status-codes"]
+}
+

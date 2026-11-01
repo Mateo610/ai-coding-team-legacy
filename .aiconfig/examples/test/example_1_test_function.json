@@ -1,0 +1,7 @@
+{
+  "task": "Write tests for a function that adds two numbers",
+  "test_code": "import pytest\n\ndef add_numbers(a: int, b: int) -> int:\n    \"\"\"Add two numbers.\"\"\"\n    if not isinstance(a, int) or not isinstance(b, int):\n        raise TypeError(\"Both arguments must be integers\")\n    return a + b\n\n# Tests below\n\ndef test_normal_case():\n    \"\"\"Test normal addition.\"\"\"\n    assert add_numbers(2, 3) == 5\n    assert add_numbers(10, 20) == 30\n\ndef test_edge_cases():\n    \"\"\"Test edge cases.\"\"\"\n    assert add_numbers(0, 0) == 0\n    assert add_numbers(-5, 5) == 0\n    assert add_numbers(-10, -5) == -15\n\ndef test_large_numbers():\n    \"\"\"Test with large numbers.\"\"\"\n    assert add_numbers(1000, 2000) == 3000\n    assert add_numbers(999999, 1) == 1000000\n\ndef test_error_cases():\n    \"\"\"Test error handling.\"\"\"\n    with pytest.raises(TypeError):\n        add_numbers('2', 3)\n    with pytest.raises(TypeError):\n        add_numbers(2, '3')\n    with pytest.raises(TypeError):\n        add_numbers(None, 5)",
+  "description": "Comprehensive tests covering normal, edge, and error cases",
+  "tags": ["testing", "pytest", "edge-cases", "error-handling"]
+}
+

@@ -1,0 +1,2 @@
+@schema: timestamp, interaction_id, agent, task_hash, complexity_pred, complexity_actual, route, success_score, tokens_used, duration_ms
+2025-11-15T21:41:53.627886, 7801e1c09eb7, orchestrator, 8d6e2276, 5, 5, local, 76, 681, 12929

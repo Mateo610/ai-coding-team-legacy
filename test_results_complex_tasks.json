@@ -1,0 +1,114 @@
+[
+  {
+    "task": "Create a Flask REST API endpoint for user authentication that accepts email and password, validates the input, authenticates the user, and returns a JWT token with proper error handling and HTTP status codes",
+    "task_type": "api",
+    "code_length": 1620,
+    "quality_checks": {
+      "has_type_hints": true,
+      "has_docstrings": true,
+      "has_error_handling": false,
+      "has_input_validation": true,
+      "has_comprehensive_docstring": true,
+      "follows_pep8": false,
+      "production_ready": true,
+      "task_specific": true
+    },
+    "quality_score": 75.0,
+    "syntax_valid": false,
+    "skills_used": [
+      "security",
+      "error_handling"
+    ],
+    "code": "from flask import Flask, request, jsonify\nfrom flask_restful import Resource, Api\nfrom flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity\nfrom werkzeug.security import check_password_hash, generate_password_hash\nimport os\n\napp = Flask(__name__)\napi = Api(app)\n\n# Configure JWT\napp.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your-secret-key')\njwt = JWTManager(app)\n\n# Dummy user database\nusers = {\n    \"user1@example.com\": generate_password_hash(\"pa"
+  },
+  {
+    "task": "Create SQLAlchemy models for a blog post system with relationships between Post, Author, and Comment models, including proper constraints, indexes, and relationships",
+    "task_type": "database",
+    "code_length": 2176,
+    "quality_checks": {
+      "has_type_hints": false,
+      "has_docstrings": false,
+      "has_error_handling": false,
+      "has_input_validation": false,
+      "has_comprehensive_docstring": false,
+      "follows_pep8": false,
+      "production_ready": false,
+      "task_specific": true
+    },
+    "quality_score": 12.5,
+    "syntax_valid": false,
+    "skills_used": [
+      "security",
+      "documentation"
+    ],
+    "code": "from sqlalchemy import (\n    Column,\n    Integer,\n    String,\n    Text,\n    DateTime,\n    ForeignKey,\n    create_engine,\n    Index,\n)\nfrom sqlalchemy.orm import relationship, backref\nfrom sqlalchemy.ext.declarative import declarative_base\n\nBase = declarative_base()\n\nclass Author(Base):\n    __tablename__ = 'authors'\n    \n    id = Column(Integer, primary_key=True)\n    username = Column(String(50), unique=True, nullable=False)\n    email = Column(String(120), unique=True, nullable=False)\n    created"
+  },
+  {
+    "task": "Create a CRUD function to create a user in the database with validation for email format, password strength, and duplicate email checking, including proper error handling",
+    "task_type": "crud",
+    "code_length": 8546,
+    "quality_checks": {
+      "has_type_hints": true,
+      "has_docstrings": true,
+      "has_error_handling": true,
+      "has_input_validation": true,
+      "has_comprehensive_docstring": true,
+      "follows_pep8": false,
+      "production_ready": true,
+      "task_specific": true
+    },
+    "quality_score": 87.5,
+    "syntax_valid": false,
+    "skills_used": [
+      "error_handling",
+      "sqlalchemy"
+    ],
+    "code": "import re\nfrom typing import Optional\nfrom sqlalchemy.exc import IntegrityError\n\nclass User:\n    def __init__(self, id: int, email: str, password: str):\n        self.id = id\n        self.email = email\n        self.password = password\n\ndef validate_email(email: str) -> bool:\n    \"\"\"Validate the format of an email address.\"\"\"\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    return re.match(pattern, email) is not None\n\ndef validate_password(password: str) -> bool:\n    \"\"\"Valida"
+  },
+  {
+    "task": "Implement a binary search algorithm with type hints, docstrings explaining time complexity, and proper error handling for edge cases like empty arrays and unsorted arrays",
+    "task_type": "algorithm",
+    "code_length": 1505,
+    "quality_checks": {
+      "has_type_hints": true,
+      "has_docstrings": true,
+      "has_error_handling": false,
+      "has_input_validation": true,
+      "has_comprehensive_docstring": true,
+      "follows_pep8": true,
+      "production_ready": true,
+      "task_specific": true
+    },
+    "quality_score": 87.5,
+    "syntax_valid": false,
+    "skills_used": [
+      "error_handling",
+      "algorithms",
+      "type_hints"
+    ],
+    "code": "from typing import List, Optional\n\ndef binary_search(arr: List[int], target: int) -> Optional[int]:\n    \"\"\"\n    Perform binary search on a sorted array to find the index of the target value.\n    \n    Args:\n        arr (List[int]): The sorted list of integers to search through.\n        target (int): The integer value to search for in the array.\n        \n    Returns:\n        Optional[int]: The index of the target if found, otherwise None.\n        \n    Raises:\n        ValueError: If the input array"
+  },
+  {
+    "task": "Create a data processing function using pandas to clean and transform a DataFrame, including handling missing values, data type conversions, and validation with proper error handling",
+    "task_type": "algorithm",
+    "code_length": 1678,
+    "quality_checks": {
+      "has_type_hints": true,
+      "has_docstrings": true,
+      "has_error_handling": true,
+      "has_input_validation": true,
+      "has_comprehensive_docstring": true,
+      "follows_pep8": true,
+      "production_ready": true,
+      "task_specific": true
+    },
+    "quality_score": 100.0,
+    "syntax_valid": false,
+    "skills_used": [
+      "error_handling",
+      "python_idioms",
+      "type_hints"
+    ],
+    "code": "import pandas as pd\nfrom typing import Optional\n\ndef clean_and_transform_data(df: pd.DataFrame) -> pd.DataFrame:\n    \"\"\"\n    Cleans and transforms the input DataFrame by handling missing values,\n    converting data types, and validating the data.\n\n    Args:\n        df (pd.DataFrame): The input DataFrame to be cleaned and transformed.\n\n    Returns:\n        pd.DataFrame: The cleaned and transformed DataFrame.\n\n    Raises:\n        ValueError: If the input is not a pandas DataFrame.\n        TypeErro"
+  }
+]

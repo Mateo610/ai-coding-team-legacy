@@ -1,0 +1,7 @@
+{
+  "task": "Implement binary search algorithm",
+  "solution": "from typing import List, Optional\n\ndef binary_search(arr: List[int], target: int) -> Optional[int]:\n    \"\"\"\n    Binary search to find target in sorted array.\n    \n    Args:\n        arr: Sorted list of integers\n        target: Value to search for\n    \n    Returns:\n        Index of target if found, None otherwise\n    \n    Raises:\n        ValueError: If array is empty or not sorted\n    \"\"\"\n    if not arr:\n        raise ValueError(\"Array cannot be empty\")\n    \n    # Verify array is sorted\n    if arr != sorted(arr):\n        raise ValueError(\"Array must be sorted\")\n    \n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    return None",
+  "description": "Binary search with input validation and error handling",
+  "tags": ["algorithm", "search", "binary-search", "validation"]
+}
+

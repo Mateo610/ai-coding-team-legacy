@@ -1,0 +1,8 @@
+@schema: timestamp, interaction_id, agent, task_hash, complexity_pred, complexity_actual, route, success_score, tokens_used, duration_ms
+2025-11-22T21:32:47.437873, fa43f7fbe627, orchestrator, 54804dcf, 6, 6, local, 76, 0, 12406
+2025-11-22T21:32:58.173225, 91997cbd274a, orchestrator, d4532ebc, 6, 6, local, 71, 0, 7357
+2025-11-22T21:33:11.548185, ffca69a47644, orchestrator, 2f2402a6, 7, 7, local, 70, 0, 13300
+2025-11-22T21:33:16.160669, 5d84cb21801f, orchestrator, a388efef, 7, 7, local, 78, 0, 4535
+2025-11-22T21:43:37.263514, e59a3d594573, orchestrator, 294fe6da, 6, 6, local, 71, 0, 7378
+2025-11-22T21:44:10.441656, 144a2ea86102, orchestrator, 884583f3, 7, 7, local, 64, 0, 33099
+2025-11-22T21:44:11.365047, 216286f36037, orchestrator, 48425f1f, 7, 7, local, 88, 0, 912

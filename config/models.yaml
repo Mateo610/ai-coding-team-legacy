@@ -1,0 +1,38 @@
+models:
+  orchestrator:
+    name: "qwen2.5-coder:14b"
+    temperature: 0.3
+    max_tokens: 4000
+    
+  implementation:
+    name: "qwen2.5-coder:7b"
+    temperature: 0.2
+    max_tokens: 3000  # Base limit, dynamically increased for complex tasks (API, database, etc.)
+    
+  validation:
+    name: "qwen2.5-coder:7b"
+    temperature: 0.1
+    max_tokens: 3000
+
+routing:
+  complexity_threshold: 8  # >= 8 routes to Claude
+  
+  weights:
+    lexical: 3
+    codebase_size: 2
+    novelty: 2
+    historical: -1
+
+claude:
+  model: "claude-sonnet-4-20250514"
+  max_tokens: 4000
+
+timeouts:
+  # Timeouts in seconds for different operations
+  model_request: 180  # Timeout for model API requests (streaming)
+  model_streaming: 300  # Max time for streaming response collection
+  tool_execution: 30  # Timeout for tool execution
+  code_execution: 10  # Timeout for code execution
+  test_execution: 60  # Timeout for test execution
+  health_check: 5  # Timeout for health checks
+  file_operations: 10  # Timeout for file operations

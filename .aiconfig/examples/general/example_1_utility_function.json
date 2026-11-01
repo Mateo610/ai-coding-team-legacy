@@ -1,0 +1,7 @@
+{
+  "task": "Create a utility function to format file size",
+  "solution": "from typing import Union\n\ndef format_file_size(size_bytes: int) -> str:\n    \"\"\"\n    Format file size in bytes to human-readable format.\n    \n    Args:\n        size_bytes: Size in bytes\n    \n    Returns:\n        Human-readable size string (e.g., '1.5 MB')\n    \n    Raises:\n        ValueError: If size_bytes is negative\n    \"\"\"\n    if not isinstance(size_bytes, int):\n        raise TypeError(f\"Size must be an integer, got {type(size_bytes).__name__}\")\n    \n    if size_bytes < 0:\n        raise ValueError(f\"File size cannot be negative, got {size_bytes}\")\n    \n    units = ['B', 'KB', 'MB', 'GB', 'TB']\n    unit_index = 0\n    size = float(size_bytes)\n    \n    while size >= 1024 and unit_index < len(units) - 1:\n        size /= 1024\n        unit_index += 1\n    \n    return f\"{size:.2f} {units[unit_index]}\"",
+  "description": "Utility function with proper validation and formatting",
+  "tags": ["utility", "formatting", "validation", "type-hints"]
+}
+

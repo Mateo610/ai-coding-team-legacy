@@ -1,0 +1,7 @@
+{
+  "task": "Create a function to retrieve a user by ID",
+  "solution": "def get_user(user_id: int) -> Optional[Dict[str, Any]]:\n    \"\"\"\n    Retrieve a user by ID.\n    \n    Args:\n        user_id: Unique identifier for the user\n    \n    Returns:\n        User dictionary if found, None otherwise\n    \n    Raises:\n        ValueError: If user_id is invalid\n    \"\"\"\n    if not isinstance(user_id, int):\n        raise ValueError(f\"User ID must be an integer, got {type(user_id).__name__}\")\n    \n    if user_id <= 0:\n        raise ValueError(f\"User ID must be positive, got {user_id}\")\n    \n    # In real implementation, query database here\n    # user = db.users.find_one({'id': user_id})\n    # return user if user else None\n    \n    # Mock implementation\n    if user_id == 1:\n        return {'id': 1, 'username': 'testuser', 'email': 'test@example.com'}\n    return None",
+  "description": "CRUD read operation with error handling",
+  "tags": ["read", "retrieval", "optional-return", "error-handling"]
+}
+

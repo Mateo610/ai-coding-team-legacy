@@ -1,0 +1,7 @@
+{
+  "task": "Create a function to sort a list of numbers using quicksort",
+  "solution": "from typing import List\n\ndef quicksort(arr: List[int]) -> List[int]:\n    \"\"\"\n    Sort a list of integers using quicksort algorithm.\n    \n    Args:\n        arr: List of integers to sort\n    \n    Returns:\n        New sorted list of integers\n    \"\"\"\n    if len(arr) <= 1:\n        return arr\n    \n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    \n    return quicksort(left) + middle + quicksort(right)",
+  "description": "Quicksort implementation with clear structure",
+  "tags": ["algorithm", "sorting", "quicksort", "recursion"]
+}
+

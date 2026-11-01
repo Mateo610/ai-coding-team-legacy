@@ -1,0 +1,7 @@
+{
+  "task": "Create a function to add a new user to a database",
+  "solution": "def create_user(username: str, email: str, age: Optional[int] = None) -> Dict[str, Any]:\n    \"\"\"\n    Create a new user in the database.\n    \n    Args:\n        username: Unique username for the user\n        email: Valid email address\n        age: Optional age of the user\n    \n    Returns:\n        Dictionary containing created user data\n    \n    Raises:\n        ValueError: If username or email is invalid\n        TypeError: If age is provided but not an integer\n    \"\"\"\n    if not username or not isinstance(username, str):\n        raise ValueError(f\"Username must be a non-empty string, got {type(username).__name__}\")\n    \n    if not email or not isinstance(email, str) or '@' not in email:\n        raise ValueError(f\"Email must be a valid email address, got {email}\")\n    \n    if age is not None:\n        if not isinstance(age, int):\n            raise TypeError(f\"Age must be an integer, got {type(age).__name__}\")\n        if age < 0:\n            raise ValueError(f\"Age must be non-negative, got {age}\")\n    \n    user_data = {\n        'username': username,\n        'email': email,\n        'age': age,\n        'created_at': datetime.now().isoformat()\n    }\n    \n    # In real implementation, save to database here\n    # db.users.insert(user_data)\n    \n    return user_data",
+  "description": "CRUD create operation with validation",
+  "tags": ["create", "validation", "error-handling", "type-hints"]
+}
+

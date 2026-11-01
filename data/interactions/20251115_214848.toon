@@ -1,0 +1,1 @@
+@schema: timestamp, interaction_id, agent, task_hash, complexity_pred, complexity_actual, route, success_score, tokens_used, duration_ms
